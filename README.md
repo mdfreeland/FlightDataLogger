@@ -4,4 +4,4 @@ Data logger for a high altitude balloon flight to run on a raspberry pi zero w a
 1. python3
 2. pySerial
 3. Enable I2C and SPI (if on Raspberry Pi)
-4. https://github.com/adafruit/Adafruit_Python_GPIO.git (install: sudo python setup.py install)
+4. https://github.com/adafruit/Adafruit_Python_GPIO.git (install: sudo python3 setup.py install)
