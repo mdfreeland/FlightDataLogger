@@ -8,4 +8,4 @@ class AltimeterReader:
         degrees = self.sensor.read_temperature()
         pascals = self.sensor.read_pressure()
         hectopascals = pascals / 100
-        return { 'Temperature': '{0:0.3f} deg C'.format(degrees), 'Pressure': '{0:0.2f} hPa'.format(hectopascals) }
+        return { 'Temperature (C)': '{0:0.3f}'.format(degrees), 'Pressure (hPa)': '{0:0.2f}'.format(hectopascals) }
