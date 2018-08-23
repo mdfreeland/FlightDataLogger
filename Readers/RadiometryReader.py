@@ -17,13 +17,19 @@ class RadiometryReader:
         self.radiometer.write(b'p')
 
     def clearRadiometerInternalDataStorage(self):
-        self.logger.info('Sending the command to the radiometer to clear all UV readings from its internal storage')
+        message = 'Sending the command to the radiometer to clear all UV readings from its internal storage...'
+        print (message)
+        self.logger.info(message)
         # Clear UV readings stored in the Solar Light Radiometer internal storage
+        self.radiometer.write(b'c')
+        sleep(1)
         self.radiometer.write(b'\x03')
         sleep(1)
         self.radiometer.write(b'y')
         sleep(1)
-        self.radiometer.readline()
+        message = 'done.'
+        print (message)
+        self.logger.info(message)
 
     def getReading(self):
         # Get the reading and decode the byte array to a string
