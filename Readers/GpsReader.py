@@ -18,7 +18,7 @@ class GpsReader(threading.Thread):
         if currentValue == None:
             return {key: '' for key in keys}
         self.logger.info('GPS reading received: ' + str(currentValue))
-        reading = {k:currentValue[k] for k in keys}
+        reading = {key:(currentValue[key] if key in currentValue else '') for key in keys}
         return reading
 
     def run(self):
@@ -29,8 +29,6 @@ class GpsReader(threading.Thread):
                     self.currentValue = val
         except (KeyboardInterrupt, SystemExit):
             raise
-        except KeyError:
-            pass
         except StopIteration:
             self.session = None
             print("GPSD has terminated")
